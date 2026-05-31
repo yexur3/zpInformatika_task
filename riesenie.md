@@ -40,9 +40,3 @@ AI agent (opencode) čítal tieto súbory a implementoval projekt v poradí DB �
 Každé textové pole na podstránkach sleduje svoju hodnotu.
 Keď používateľ napíše presne `ERROR` (veľkými písmenami), všetky tlačidlá na tej istej podstránke sčervenajú a na backend sa odošle log, ktorý sa uloží do tabuľky `ErrorLog` v databáze.
 Po zmene hodnoty poľa sa tlačidlá vrátia do normálneho stavu.
-
-## 5. Bonus — lokálny AI model
-
-Bol stiahnutý model **Gemma 3 4B** z Hugging Face cez Ollama (`ollama pull gemma3:4b`).
-Model beží lokálne na CPU (16GB RAM). Integrácia do opencode cez Ollama provider je pripravená.
-Porovnanie výkonu s cloudovými modelmi nebolo dokončené.
