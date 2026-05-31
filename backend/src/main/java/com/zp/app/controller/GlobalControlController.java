@@ -1,5 +1,6 @@
 package com.zp.app.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zp.app.dto.GlobalControlDto;
 import com.zp.app.dto.GlobalControlUpdateDto;
 import com.zp.app.model.GlobalControl;
@@ -11,7 +12,10 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -30,7 +34,7 @@ public class GlobalControlController {
         return globalControlService.getControlByPage(page)
                 .map(this::convertToDto)
                 .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build());
     }
 
     @GetMapping("/all")
@@ -42,10 +46,21 @@ public class GlobalControlController {
     }
 
     @PatchMapping
-    public ResponseEntity<GlobalControlDto> updateControl(@Valid @RequestBody GlobalControlUpdateDto updateDto) {
-        if (updateDto.getPage() == null || updateDto.getPage().isBlank()) {
+    public ResponseEntity<GlobalControlDto> updateControl(@RequestBody Map<String, Object> rawBody) {
+        if (rawBody == null || !rawBody.containsKey("page") || rawBody.get("page") == null || rawBody.get("page").toString().isBlank()) {
             return ResponseEntity.badRequest().build();
         }
+
+        Set<String> allowedFields = new HashSet<>(Set.of("page", "isButtonDisabled", "isInputDisabled", "isTableVisible"));
+        for (String key : rawBody.keySet()) {
+            if (!allowedFields.contains(key)) {
+                return ResponseEntity.badRequest().build();
+            }
+        }
+
+        ObjectMapper mapper = new ObjectMapper();
+        GlobalControlUpdateDto updateDto = mapper.convertValue(rawBody, GlobalControlUpdateDto.class);
+
         try {
             GlobalControl updatedControl = globalControlService.updateControl(updateDto.getPage(), updateDto);
             return ResponseEntity.ok(convertToDto(updatedControl));

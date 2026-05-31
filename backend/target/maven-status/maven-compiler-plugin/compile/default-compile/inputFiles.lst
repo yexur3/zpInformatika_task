@@ -1,0 +1,14 @@
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\BackendApplication.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\model\GlobalControl.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\dto\ErrorLogRequestDto.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\service\GlobalControlService.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\dto\GlobalControlUpdateDto.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\dto\GlobalControlDto.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\dto\ErrorLogResponseDto.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\config\CorsConfig.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\controller\GlobalControlController.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\service\ErrorLogService.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\controller\ErrorLogController.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\model\ErrorLog.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\repository\ErrorLogRepository.java
+C:\Users\ilias\Documents\zpInformatika\zp-app\backend\src\main\java\com\zp\app\repository\GlobalControlRepository.java
