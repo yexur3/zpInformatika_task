@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS global_control (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    page TEXT NOT NULL UNIQUE,
+    is_button_disabled BOOLEAN NOT NULL DEFAULT FALSE,
+    is_input_disabled BOOLEAN NOT NULL DEFAULT FALSE,
+    is_table_visible BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS error_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    page TEXT NOT NULL,
+    input_name TEXT NOT NULL,
+    created_at DATETIME NOT NULL
+);
